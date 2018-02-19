@@ -8,8 +8,7 @@ public class Die {
 	/**
 	 * Constructor
 	 * 
-	 * @param s
-	 *            The number of sides this die has
+	 * @param s he number of sides this die has
 	 */
 	public Die(int s) {
 		sides = s;
@@ -64,7 +63,7 @@ public class Die {
 	 * 
 	 * @param d
 	 *            die to be compared
-	 * @return 0 if equal, - if this < d, + if this > d
+	 * @return 0 if equal, - if this > d, + if this < d
 	 */
 	public int compareTo(Die d) {
 		int c1 = d.dieVal;

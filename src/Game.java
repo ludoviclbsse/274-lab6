@@ -1,17 +1,35 @@
+import java.util.Scanner;
+
 public class Game {
+	public static char getLetter() {
+		Scanner in = new Scanner(System.in);
+		String input = "";
+		boolean isInvalid = true;
+		while (isInvalid) {
+			System.out.println("Enter a Letter: ");
+			if (in.hasNext()) {
+				input = in.nextLine();
+				if (input.matches("[YN]{1}"))
+					isInvalid = false;
+			} else {
+				in.nextLine(); // clear out invalid input
+				System.out.println("Invalid Input");
+			}
+		}
+		return input.charAt(0);
+	}
+	
 	public static void main(String[] args) {
 		Player p1 = new Player();
-		Player p2 = new Player();
-		for (int i = 0; i < 3; i++) {
+		Boolean boucle = true;
+		System.out.println("Yacht-z");
+		while (boucle) {
+			p1.toString();
 			p1.takeTurn();
-			p2.takeTurn();
-		}
-		if (p1.getPoints() > p2.getPoints()) {
-			System.out.println("Player 1 Wins");
-		} else if (p2.getPoints() > p1.getPoints()) {
-			System.out.println("Player 2 Wins");
-		} else {
-			System.out.println("Tied");
+			System.out.println("Score = " + p1.getPoints() + " points.");
+			System.out.println("Play Again? Y/N ");
+			if (getLetter() == 'N')
+				boucle = false;
 		}
 	}
 }
